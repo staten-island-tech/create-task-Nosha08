@@ -12,8 +12,6 @@ async function fetchData() {
 }
 
 let i = 0
-let user = []
-
 function display(data) {
   if (i > 9) {
     final()
@@ -32,13 +30,14 @@ function display(data) {
   form(data)
 }
 
+let user = []
 function form(data) {
   let forms = document.querySelectorAll('.optionForm')
   forms.forEach(form => {
     form.addEventListener('submit', (event) => {
       event.preventDefault()
-      let selectedOption = event.target.elements[0].value
-      if (selectedOption === data.results[i].correct_answer) {
+      let selected = event.target.elements[0].value
+      if (selected === data.results[i].correct_answer) {
         user.push('Correct')
       } else {
         user.push('Incorrect')
